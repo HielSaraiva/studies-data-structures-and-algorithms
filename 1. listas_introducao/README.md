@@ -1,4 +1,4 @@
-# Implemente essas operações em uma Lista em Vetores:
+# Implemente essas operações em uma Lista:
 * INSERIR
 * ALTERAR
 * EXCLUIR
