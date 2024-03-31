@@ -45,13 +45,13 @@ int main()
 
     do
     {
-        printf("\n1 - Inserir um aluno na lista\n");
-        printf("2 - Alterar um aluno da lista\n");
-        printf("3 - Excluir um aluno da lista\n");
-        printf("4 - Buscar um aluno na lista\n");
-        printf("5 - Ordenar os alunos da lista pelo nome\n");
-        printf("6 - Listar todos os alunos da lista\n");
-        printf("0 - Sair do programa\n=> ");
+        printf("\n[1] - Inserir um aluno na lista\n");
+        printf("[2] - Alterar um aluno da lista\n");
+        printf("[3] - Excluir um aluno da lista\n");
+        printf("[4] - Buscar um aluno na lista\n");
+        printf("[5] - Ordenar os alunos da lista pelo nome\n");
+        printf("[6] - Listar todos os alunos da lista\n");
+        printf("[0] - Sair do programa\n=> ");
         scanf("%d", &input);
 
         switch (input)
