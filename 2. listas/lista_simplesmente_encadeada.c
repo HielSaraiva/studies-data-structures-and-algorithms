@@ -131,7 +131,7 @@ void inserir_final(struct no **lista, struct s_dados dados)
 	}
 }
 
-// Inserir ordenando:
+// Inserir ordenando(TO DO):
 
 // Remover(C):
 int remover(struct no **lista, char matricula[])
