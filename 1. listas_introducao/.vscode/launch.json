@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/hielsaraiva_/Workspaces/vscode_workspace/random_codes/estruturas_de_dados/aula 13:03",
+      "program": "/Users/hielsaraiva_/Workspaces/vscode_workspace/random_codes/estruturas_de_dados/aula 13:03/build/Debug/outDebug"
+    }
+  ]
+}
