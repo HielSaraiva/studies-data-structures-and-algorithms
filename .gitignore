@@ -18,4 +18,4 @@ cmake-build-*/
 .DS_Store/
 
 # VSCODE
-.vscode
+.vscode/
