@@ -15,7 +15,7 @@ cmake-build-*/
 !*.*
 
 # Ignore os arquivos de sistema do Mac
-.DS_Store/
+.DS_Store
 
 # VSCODE
 .vscode/
