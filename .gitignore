@@ -2,20 +2,8 @@
 .idea
 out/
 
-# Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
-
-# CMake
-cmake-build-*/
-
-# Binary files
-*
-!/**/
-!*.*
+# VSCODE
+.vscode/
 
 # Ignore os arquivos de sistema do Mac
 .DS_Store
-
-# VSCODE
-.vscode/
