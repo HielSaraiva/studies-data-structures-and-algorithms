@@ -1,18 +1,5 @@
 # Generated files
-.idea
-Out/
-
-# Gradle
-.idea/**/gradle.xml
-.idea/**/libraries
-
-# CMake
-cmake-build-*/
-
-# Binary files
-*
-!/**/
-!*.*
+.idea/
 
 # Ignore os arquivos de sistema do Mac
 .DS_store/
