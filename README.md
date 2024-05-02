@@ -3,4 +3,4 @@ Repositório que contém as implementações das operações necessárias para a
 
 * Lista simplesmente encadeada (ordenada e não ordenada)
 
-* Lista duplamente encadeada
+* Lista duplamente encadeada (ordenada e não ordenada)
