@@ -63,4 +63,35 @@ int main()
    strcpy(dados4.fone, "85988444223");
    dados4.notas[0] = 9.0f;
    dados4.notas[1] = 7.5f;
+
+   // Testando funcoes:
+
+
 }
+
+// Inserir no comeco(TO DO):
+
+
+// Inserir no final(TO DO):
+
+
+// Inserir ordenando em ordem crescente(TO DO):
+
+
+// Remover(TO DO):
+
+
+// Esvaziar lista(TO DO):
+
+
+// Alterar(TO DO):
+
+
+// Buscar(TO DO):
+
+
+// Listar todos(TO DO):
+
+
+// Funcoes auxiliares(TO DO):
+
