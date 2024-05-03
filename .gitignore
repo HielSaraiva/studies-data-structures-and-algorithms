@@ -7,3 +7,5 @@ out/
 
 # Ignore os arquivos de sistema do Mac
 .DS_Store
+2. listas/lista_duplamente_encadeada
+2. listas/lista_simplesmente_encadeada
