@@ -64,17 +64,43 @@ int main()
    dados4.notas[0] = 5.0f;
    dados4.notas[1] = 4.5f;
 
+   // Iniciando dados5:
+   struct s_dados dados5;
+   strcpy(dados5.nome, "Alanis");
+   strcpy(dados5.matricula, "202305");
+   strcpy(dados5.fone, "85988442233");
+   dados5.notas[0] = 5.0f;
+   dados5.notas[1] = 4.5f;
+
+   // Iniciando dados6:
+   struct s_dados dados6;
+   strcpy(dados6.nome, "Kel");
+   strcpy(dados6.matricula, "202306");
+   strcpy(dados6.fone, "85988442233");
+   dados6.notas[0] = 5.0f;
+   dados6.notas[1] = 4.5f;
+
+   // Iniciando dados7:
+   struct s_dados dados7;
+   strcpy(dados7.nome, "Hala");
+   strcpy(dados7.matricula, "202307");
+   strcpy(dados7.fone, "85988442233");
+   dados7.notas[0] = 5.0f;
+   dados7.notas[1] = 4.5f;
+
    // Testando funcoes:
-   inserir_ordenando(&lista, dados3);
+   inserir_ordenando(&lista, dados5);
+   inserir_ordenando(&lista, dados6);
+   inserir_ordenando(&lista, dados1);
    inserir_ordenando(&lista, dados2);
    inserir_ordenando(&lista, dados4);
-   inserir_ordenando(&lista, dados1);
-   // alterar(lista, "202301", dados4);
+   inserir_ordenando(&lista, dados3);
+   alterar(lista, "202301", dados7);
 
    // listar(lista);
    // printf("\n%s\n", ((buscar(lista, "202301"))->dados).nome);
 
-   // remover(&lista, "202303");
+   remover(&lista, "202305");
    listar(lista);
 }
 
@@ -117,7 +143,7 @@ void inserir_final(struct no **lista, struct s_dados dados)
       aux1->dados = dados;
       aux1->prox = NULL;
 
-      // aux2 percorre a lista até o último dado:
+      // aux2 percorre a lista ate o ultimo dado:
       struct no *aux2 = *lista;
       while (aux2->prox != NULL)
       {
@@ -149,20 +175,21 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
          aux2 = aux2->prox;
       }
 
-      if (aux2 == *lista)
-      { // esta no comeco
+      if (aux2 == *lista && (strcmp(dados.matricula, aux2->dados.matricula) < 0))
+      { // esta no comeco (C)
          aux1->dados = dados;
          aux1->prox = *lista;
          *lista = aux1;
       }
-      else if (aux2->prox == NULL)
+      else if (aux2->prox == NULL && (strcmp(dados.matricula, aux2->dados.matricula) > 0))
       { // esta no fim
          aux1->dados = dados;
          aux1->prox = NULL;
          aux2->prox = aux1;
       }
       else
-      { // esta no meio
+      { // esta no meio (C)
+         aux2 = pega_no_anterior(*lista, aux2);
          aux1->dados = dados;
          aux1->prox = aux2->prox;
          aux2->prox = aux1;
