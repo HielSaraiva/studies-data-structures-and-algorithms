@@ -95,16 +95,18 @@ int main()
    inserir_ordenando(&lista, dados4);
    inserir_ordenando(&lista, dados2);
    inserir_ordenando(&lista, dados3);
-   // inserir_final(&lista, dados6);
-   // inserir_final(&lista, dados7);
+   inserir_ordenando(&lista, dados6);
+   inserir_ordenando(&lista, dados7);
 
    // alterar(lista, "202303", dados7);
    // printf("Test");
    // printf("%d", esvaziar(&lista));
 
-   // remover(&lista, "202301");
+   remover(&lista, "202301");
+   remover(&lista, "202302");
+   remover(&lista, "202306");
 
-   esvaziar(&lista);
+   // esvaziar(&lista);
    listar(lista);
 }
 
@@ -146,12 +148,12 @@ void inserir_final(struct no **lista, struct s_dados dados)
    else
    {
       // Se ja houver algum no:
-      struct no *aux1 = malloc(sizeof(struct no));
-      aux1->dados = dados;
-      aux1->prox = *lista;
+      struct no *aux = malloc(sizeof(struct no));
+      aux->dados = dados;
+      aux->prox = *lista;
 
       struct no *ant = pega_no_anterior(*lista, *lista);
-      ant->prox = aux1;
+      ant->prox = aux;
    }
 }
 
@@ -171,6 +173,8 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       // Se ja houver algum no:
       struct no *aux1 = malloc(sizeof(struct no));
       struct no *aux2 = *lista;
+
+      // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
       struct no *ant = pega_no_anterior(*lista, aux2);
       ant->prox = NULL;
 
@@ -212,8 +216,10 @@ int remover(struct no **lista, char matricula[])
       return -1; // nao ha o que remover
    }
 
+   // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
    struct no *aux1 = pega_no_anterior(*lista, *lista);
    aux1->prox = NULL;
+
    if (aux == *lista)
    { // esta no comeco
       *lista = (*lista)->prox;
@@ -234,7 +240,9 @@ int remover(struct no **lista, char matricula[])
       struct no *ant = pega_no_anterior(*lista, aux);
       ant->prox = aux->prox;
       free(aux);
+      aux1->prox = *lista;
    }
+
    return 0; // dado removido da lista
 }
 
@@ -246,8 +254,10 @@ int esvaziar(struct no **lista)
       return -1; // a lista ja esta vazia
    }
 
+   // Transformando em uma lista encadeada NAO circular
    struct no *ant = pega_no_anterior(*lista, *lista);
    ant->prox = NULL;
+
    while (*lista != NULL)
    {
       struct no *aux = *lista;

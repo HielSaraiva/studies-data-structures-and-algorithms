@@ -90,9 +90,15 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_comeco(&lista, dados1);
+   inserir_ordenando(&lista, dados2);
+   inserir_ordenando(&lista, dados1);
+   // inserir_ordenando(&lista, dados3);
+   // inserir_ordenando(&lista, dados4);
+   // inserir_ordenando(&lista, dados5);
+   // inserir_ordenando(&lista, dados6);
+   // inserir_ordenando(&lista, dados7);
 
-   remover(&lista, "202301");
+   // remover(&lista, "202301");
 
    // listar(lista);
    // printf("\n%s\n", ((buscar(lista, "202301"))->dados).nome);
