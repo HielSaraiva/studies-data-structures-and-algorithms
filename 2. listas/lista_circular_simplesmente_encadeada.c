@@ -90,18 +90,19 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_comeco(&lista, dados1);
-
-   // inserir_comeco(&lista, dados4);
-   // inserir_comeco(&lista, dados5);
-   // inserir_comeco(&lista, dados6);
-   // inserir_comeco(&lista, dados7);
+   inserir_final(&lista, dados1);
+   inserir_final(&lista, dados2);
+   inserir_final(&lista, dados3);
+   inserir_final(&lista, dados4);
+   inserir_final(&lista, dados5);
+   // inserir_final(&lista, dados6);
+   // inserir_final(&lista, dados7);
 
    // alterar(lista, "202303", dados7);
    // printf("Test");
    // printf("%d", esvaziar(&lista));
 
-   remover(&lista, "202301");
+   // remover(&lista, "202301");
 
    // esvaziar(&lista);
    listar(lista);
@@ -115,8 +116,8 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      *lista = aux;
       aux->prox = aux;
+      *lista = aux;
    }
    else
    {
@@ -131,7 +132,7 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
    }
 }
 
-// Inserir no final(TO DO):
+// Inserir no final(C):
 void inserir_final(struct no **lista, struct s_dados dados)
 {
    if (*lista == NULL)
@@ -139,7 +140,7 @@ void inserir_final(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->prox = NULL;
+      aux->prox = aux;
       *lista = aux;
    }
    else
@@ -147,15 +148,10 @@ void inserir_final(struct no **lista, struct s_dados dados)
       // Se ja houver algum no:
       struct no *aux1 = malloc(sizeof(struct no));
       aux1->dados = dados;
-      aux1->prox = NULL;
+      aux1->prox = *lista;
 
-      // aux2 percorre a lista ate o ultimo dado:
-      struct no *aux2 = *lista;
-      while (aux2->prox != NULL)
-      {
-         aux2 = aux2->prox;
-      }
-      (aux2->prox) = aux1;
+      struct no *ant = pega_no_anterior(*lista, *lista);
+      ant->prox = aux1;
    }
 }
 
@@ -167,7 +163,7 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->prox = NULL;
+      aux->prox = aux;
       *lista = aux;
    }
    else
