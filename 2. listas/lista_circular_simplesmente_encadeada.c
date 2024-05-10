@@ -90,11 +90,11 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_final(&lista, dados1);
-   inserir_final(&lista, dados2);
-   inserir_final(&lista, dados3);
-   inserir_final(&lista, dados4);
-   inserir_final(&lista, dados5);
+   inserir_ordenando(&lista, dados5);
+   inserir_ordenando(&lista, dados1);
+   inserir_ordenando(&lista, dados4);
+   inserir_ordenando(&lista, dados2);
+   inserir_ordenando(&lista, dados3);
    // inserir_final(&lista, dados6);
    // inserir_final(&lista, dados7);
 
@@ -104,7 +104,7 @@ int main()
 
    // remover(&lista, "202301");
 
-   // esvaziar(&lista);
+   esvaziar(&lista);
    listar(lista);
 }
 
@@ -155,7 +155,7 @@ void inserir_final(struct no **lista, struct s_dados dados)
    }
 }
 
-// Inserir ordenando em ordem crescente(TO DO):
+// Inserir ordenando em ordem crescente(C):
 void inserir_ordenando(struct no **lista, struct s_dados dados)
 {
    if (*lista == NULL)
@@ -170,8 +170,10 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
    {
       // Se ja houver algum no:
       struct no *aux1 = malloc(sizeof(struct no));
-
       struct no *aux2 = *lista;
+      struct no *ant = pega_no_anterior(*lista, aux2);
+      ant->prox = NULL;
+
       while ((strcmp(dados.matricula, aux2->dados.matricula) > 0) && aux2->prox != NULL)
       {
          aux2 = aux2->prox;
@@ -182,11 +184,12 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
          aux1->dados = dados;
          aux1->prox = *lista;
          *lista = aux1;
+         ant->prox = *lista;
       }
       else if (aux2->prox == NULL && (strcmp(dados.matricula, aux2->dados.matricula) > 0))
       { // esta no fim
          aux1->dados = dados;
-         aux1->prox = NULL;
+         aux1->prox = *lista;
          aux2->prox = aux1;
       }
       else
@@ -195,6 +198,7 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
          aux1->dados = dados;
          aux1->prox = aux2->prox;
          aux2->prox = aux1;
+         ant->prox = *lista;
       }
    }
 }
