@@ -1,3 +1,4 @@
+// Lista Simplesmente Encadeada:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -89,18 +90,13 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_ordenando(&lista, dados5);
-   inserir_ordenando(&lista, dados6);
-   inserir_ordenando(&lista, dados1);
-   inserir_ordenando(&lista, dados2);
-   inserir_ordenando(&lista, dados4);
-   inserir_ordenando(&lista, dados3);
-   alterar(lista, "202301", dados7);
+   inserir_comeco(&lista, dados1);
+
+   remover(&lista, "202301");
 
    // listar(lista);
    // printf("\n%s\n", ((buscar(lista, "202301"))->dados).nome);
 
-   remover(&lista, "202305");
    listar(lista);
 }
 

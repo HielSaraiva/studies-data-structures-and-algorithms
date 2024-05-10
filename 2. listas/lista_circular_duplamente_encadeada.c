@@ -1,4 +1,4 @@
-// Lista Duplamente Encadeada:
+// Lista Circular Duplamente Encadeada:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -103,7 +103,7 @@ int main()
    listar(lista);
 }
 
-// Inserir no comeco(C):
+// Inserir no comeco(TO DO):
 void inserir_comeco(struct no **lista, struct s_dados dados)
 {
    if (*lista == NULL)
@@ -127,7 +127,7 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
    }
 }
 
-// Inserir no final(C):
+// Inserir no final(TO DO):
 void inserir_final(struct no **lista, struct s_dados dados)
 {
    if (*lista == NULL)
@@ -157,7 +157,7 @@ void inserir_final(struct no **lista, struct s_dados dados)
    }
 }
 
-// Inserir ordenando em ordem crescente(C):
+// Inserir ordenando em ordem crescente(TO DO):
 void inserir_ordenando(struct no **lista, struct s_dados dados)
 {
    if (*lista == NULL)
@@ -207,7 +207,7 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
    }
 }
 
-// Remover(C):
+// Remover(TO DO):
 int remover(struct no **lista, char matricula[])
 {
    struct no *aux = buscar(*lista, matricula);
@@ -236,7 +236,7 @@ int remover(struct no **lista, char matricula[])
    return 0;
 }
 
-// Esvaziar lista(C):
+// Esvaziar lista(TO DO):
 int esvaziar(struct no **lista)
 {
    if (*lista == NULL)
@@ -253,7 +253,7 @@ int esvaziar(struct no **lista)
    return 0; // lista esvaziada
 }
 
-// Alterar(C):
+// Alterar(TO DO):
 void alterar(struct no *lista, char matricula[], struct s_dados dados)
 {
    struct no *no = buscar(lista, matricula);
@@ -263,7 +263,7 @@ void alterar(struct no *lista, char matricula[], struct s_dados dados)
    }
 }
 
-// Buscar(C):
+// Buscar(TO DO):
 struct no *buscar(struct no *lista, char matricula[])
 {
    struct no *aux = lista;
@@ -274,7 +274,7 @@ struct no *buscar(struct no *lista, char matricula[])
    return aux;
 }
 
-// Listar todos(C):
+// Listar todos(TO DO):
 void listar(struct no *lista)
 {
    struct no *aux = lista;

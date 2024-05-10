@@ -5,7 +5,13 @@ out/
 # VSCODE
 .vscode/
 
-# Ignore os arquivos de sistema do Mac
+# Ignore Mac's system archives
 .DS_Store
+
+# Ignore general archives
 2. listas/lista_duplamente_encadeada
 2. listas/lista_simplesmente_encadeada
+2. listas/lista_circular_simplesmente_encadeada
+2. listas/lista_circular_simplesmente_encadeada.dSYM/Contents/Info.plist
+2. listas/lista_circular_simplesmente_encadeada.dSYM/Contents/Resources/Relocations/aarch64/lista_circular_simplesmente_encadeada.yml
+2. listas/lista_circular_simplesmente_encadeada.dSYM/Contents/Resources/DWARF/lista_circular_simplesmente_encadeada
