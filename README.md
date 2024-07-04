@@ -1,10 +1,17 @@
-# Estrutura de Dados:
-Repositório que contém as implementações das operações necessárias para as seguintes estruturas de dados.
+# Data Structures Studies
 
-* Lista Simplesmente Encadeada (ordenada e não ordenada)
+## General Objective
 
-* Lista Duplamente Encadeada (ordenada e não ordenada)
+- Repository that contains the implementations of the operations required for the following data structures.
 
-* Lista Circular Simplesmente Encadeada (ordenada e não ordenada)
+## Overview
 
-* Lista Circular Duplamente Encadeada (ordenada e não ordenada)
+- Lists:
+
+   - Singly Linked List (ordered and unordered)
+
+   - Doubly Linked List (ordered and unordered)
+
+   - Circular Singly Linked List (ordered and unordered)
+
+   - Circular Doubly Linked List (ordered and unordered)

@@ -1,4 +1,5 @@
-# Implemente essas operações em uma Lista:
+# Implement these operations in a List
+
 * INSERIR
 * ALTERAR
 * EXCLUIR
@@ -6,8 +7,9 @@
 * ORDENAR
 * LISTAR-TODOS
 
-## Dados da questão:
-### Versão 1:
+## Question data
+
+### Version 1 
 
    ``````
    #define capacidade 10;
@@ -25,8 +27,10 @@
       p->cap = capacidade;
    }
    ``````
+
 ##
-### Versão 2:
+
+### Version 2
 
    ``````
    #define capacidade 10;
@@ -45,8 +49,10 @@
       p->valores = malloc(capacidade * sizeof(int));
    }
    ``````
+
 ##
-### Versão 3:
+
+### Version 3
 
    ``````
    #define capacidade 10;

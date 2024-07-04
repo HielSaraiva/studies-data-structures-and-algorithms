@@ -1,4 +1,4 @@
-// Lista Circular Duplamente Encadeada:
+// Doubly Linked List:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -90,20 +90,16 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_ordenando(&lista, dados7);
    inserir_ordenando(&lista, dados1);
-   inserir_ordenando(&lista, dados4);
    inserir_ordenando(&lista, dados3);
-   inserir_ordenando(&lista, dados2);
    inserir_ordenando(&lista, dados5);
    inserir_ordenando(&lista, dados6);
-
+   inserir_ordenando(&lista, dados2);
+   inserir_ordenando(&lista, dados4);
    // listar(lista);
-   // esvaziar(&lista);
 
    remover(&lista, "202301");
-   remover(&lista, "202303");
-   remover(&lista, "202307");
+   alterar(lista, "202302", dados7);
    listar(lista);
 }
 
@@ -115,8 +111,8 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
-      aux->prox = aux;
+      aux->ant = NULL;
+      aux->prox = NULL;
       *lista = aux;
    }
    else
@@ -124,10 +120,8 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
       // Se ja houver algum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
+      aux->ant = NULL;
       aux->prox = *lista;
-      aux->ant = (*lista)->ant;
-
-      ((*lista)->ant)->prox = aux;
       (*lista)->ant = aux;
       *lista = aux;
    }
@@ -141,8 +135,8 @@ void inserir_final(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
-      aux->prox = aux;
+      aux->ant = NULL;
+      aux->prox = NULL;
       *lista = aux;
    }
    else
@@ -150,12 +144,11 @@ void inserir_final(struct no **lista, struct s_dados dados)
       // Se ja houver algum no:
       struct no *aux1 = malloc(sizeof(struct no));
       aux1->dados = dados;
-      aux1->prox = *lista;
-      (*lista)->ant = aux1;
+      aux1->prox = NULL;
 
       // aux2 percorre a lista ate o ultimo dado:
       struct no *aux2 = *lista;
-      while (aux2->prox != *lista)
+      while (aux2->prox != NULL)
       {
          aux2 = aux2->prox;
       }
@@ -172,8 +165,8 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
-      aux->prox = aux;
+      aux->ant = NULL;
+      aux->prox = NULL;
       *lista = aux;
    }
    else
@@ -182,12 +175,6 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       struct no *aux1 = malloc(sizeof(struct no));
 
       struct no *aux2 = *lista;
-
-      // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
-      struct no *antS = (*lista)->ant;
-      antS->prox = NULL;
-      (*lista)->ant = NULL;
-
       while ((strcmp(dados.matricula, aux2->dados.matricula) > 0) && aux2->prox != NULL)
       {
          aux2 = aux2->prox;
@@ -196,9 +183,8 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       if (aux2 == *lista && (strcmp(dados.matricula, aux2->dados.matricula) < 0))
       { // esta no comeco
          aux1->dados = dados;
-         aux1->ant = antS;
+         aux1->ant = NULL;
          aux1->prox = *lista;
-         antS->prox = aux1;
          *lista = aux1;
          aux2->ant = aux1;
       }
@@ -206,9 +192,8 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       { // esta no fim
          aux1->dados = dados;
          aux1->ant = aux2;
-         aux1->prox = *lista;
+         aux1->prox = NULL;
          aux2->prox = aux1;
-         (*lista)->ant = aux1;
       }
       else
       { // esta no meio
@@ -218,8 +203,6 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
          aux1->prox = aux2->prox;
          aux2->prox = aux1;
          (aux1->prox)->ant = aux1;
-         (*lista)->ant = antS;
-         antS->prox = *lista;
       }
    }
 }
@@ -233,25 +216,15 @@ int remover(struct no **lista, char matricula[])
       return -1; // nao ha o que remover
    }
 
-   // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
-   struct no *aux1 = (*lista)->ant;
-   aux1->prox = NULL;
-   (*lista)->ant = NULL;
-
    if (aux == *lista)
    { // esta no comeco
       *lista = (*lista)->prox;
+      (*lista)->ant = NULL;
       free(aux);
-      if (*lista != NULL)
-      {
-         aux1->prox = *lista;
-         (*lista)->ant = aux1;
-      }
    }
    else if (aux->prox == NULL)
    { // esta no fim
-      (aux->ant)->prox = *lista;
-      (*lista)->ant = aux->ant;
+      (aux->ant)->prox = NULL;
       free(aux);
    }
    else
@@ -259,8 +232,6 @@ int remover(struct no **lista, char matricula[])
       (aux->ant)->prox = aux->prox;
       (aux->prox)->ant = aux->ant;
       free(aux);
-      aux1->prox = *lista;
-      (*lista)->ant = aux1;
    }
    return 0;
 }
@@ -272,10 +243,6 @@ int esvaziar(struct no **lista)
    {
       return -1; // a lista ja esta vazia
    }
-
-   // Transformando em uma lista encadeada NAO circular
-   ((*lista)->ant)->prox = NULL;
-   (*lista)->ant = NULL;
 
    while (*lista != NULL)
    {
@@ -303,10 +270,6 @@ struct no *buscar(struct no *lista, char matricula[])
    while (aux != NULL && strcmp((aux->dados).matricula, matricula) != 0)
    {
       aux = aux->prox;
-      if (aux == lista)
-      {
-         return NULL;
-      }
    }
    return aux;
 }
@@ -315,17 +278,12 @@ struct no *buscar(struct no *lista, char matricula[])
 void listar(struct no *lista)
 {
    struct no *aux = lista;
-   int count = 0;
-   while (count != 1 && aux != NULL)
+   while (aux != NULL)
    {
       printf("\n%s\n", aux->dados.nome);
       printf("%s\n", aux->dados.matricula);
       printf("%s\n", aux->dados.fone);
       printf("%.2f %.2f\n", aux->dados.notas[0], aux->dados.notas[1]);
       aux = aux->prox;
-      if (aux == lista)
-      {
-         ++count;
-      }
    }
 }
