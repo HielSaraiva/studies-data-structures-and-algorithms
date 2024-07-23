@@ -1,17 +1,17 @@
-# Data Structures Studies
+# Estudos de Estruturas de Dados (PT-BR)
 
-## General Objective
+## Objetivo Geral
 
-- Repository that contains the implementations of the operations required for the following data structures.
+- Repositório que contém as implementações das operações necessárias para as seguintes estruturas de dados.
 
-## Overview
+## Visão Geral
 
-- Lists:
+- Listas:
 
-   - Singly Linked List (ordered and unordered)
+- Lista Simples Encadeada (ordenada e não ordenada)
 
-   - Doubly Linked List (ordered and unordered)
+- Lista Duplamente Encadeada (ordenada e não ordenada)
 
-   - Circular Singly Linked List (ordered and unordered)
+- Lista Circular Simplemente Encadeada (ordenada e não ordenada)
 
-   - Circular Doubly Linked List (ordered and unordered)
+- Lista Circular Duplamente Encadeada (ordenada e não ordenada)

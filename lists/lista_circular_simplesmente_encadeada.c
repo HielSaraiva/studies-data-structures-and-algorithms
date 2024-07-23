@@ -1,4 +1,4 @@
-// Circular Doubly Linked List:
+// Lista Circular Simplesmente Encadeada:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,7 +15,6 @@ struct no
 {
    struct s_dados dados;
    struct no *prox;
-   struct no *ant;
 };
 
 // Prototipos de funcoes:
@@ -27,6 +26,7 @@ int esvaziar(struct no **lista);
 void alterar(struct no *lista, char matricula[], struct s_dados dados);
 struct no *buscar(struct no *lista, char matricula[]);
 void listar(struct no *lista);
+struct no *pega_no_anterior(struct no *lista, struct no *no);
 
 int main()
 {
@@ -67,11 +67,11 @@ int main()
 
    // Iniciando dados5:
    struct s_dados dados5;
-   strcpy(dados5.nome, "Roberta Alanis");
+   strcpy(dados5.nome, "Alanis");
    strcpy(dados5.matricula, "202305");
-   strcpy(dados5.fone, "85988444223");
-   dados5.notas[0] = 9.0f;
-   dados5.notas[1] = 7.5f;
+   strcpy(dados5.fone, "85988442233");
+   dados5.notas[0] = 5.0f;
+   dados5.notas[1] = 4.5f;
 
    // Iniciando dados6:
    struct s_dados dados6;
@@ -90,20 +90,23 @@ int main()
    dados7.notas[1] = 4.5f;
 
    // Testando funcoes:
-   inserir_ordenando(&lista, dados7);
+   inserir_ordenando(&lista, dados5);
    inserir_ordenando(&lista, dados1);
    inserir_ordenando(&lista, dados4);
-   inserir_ordenando(&lista, dados3);
    inserir_ordenando(&lista, dados2);
-   inserir_ordenando(&lista, dados5);
+   inserir_ordenando(&lista, dados3);
    inserir_ordenando(&lista, dados6);
+   inserir_ordenando(&lista, dados7);
 
-   // listar(lista);
-   // esvaziar(&lista);
+   // alterar(lista, "202303", dados7);
+   // printf("Test");
+   // printf("%d", esvaziar(&lista));
 
    remover(&lista, "202301");
-   remover(&lista, "202303");
-   remover(&lista, "202307");
+   remover(&lista, "202302");
+   remover(&lista, "202306");
+
+   // esvaziar(&lista);
    listar(lista);
 }
 
@@ -115,7 +118,6 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
       aux->prox = aux;
       *lista = aux;
    }
@@ -125,10 +127,9 @@ void inserir_comeco(struct no **lista, struct s_dados dados)
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
       aux->prox = *lista;
-      aux->ant = (*lista)->ant;
 
-      ((*lista)->ant)->prox = aux;
-      (*lista)->ant = aux;
+      struct no *ant = pega_no_anterior(*lista, *lista);
+      ant->prox = aux;
       *lista = aux;
    }
 }
@@ -141,26 +142,18 @@ void inserir_final(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
       aux->prox = aux;
       *lista = aux;
    }
    else
    {
       // Se ja houver algum no:
-      struct no *aux1 = malloc(sizeof(struct no));
-      aux1->dados = dados;
-      aux1->prox = *lista;
-      (*lista)->ant = aux1;
+      struct no *aux = malloc(sizeof(struct no));
+      aux->dados = dados;
+      aux->prox = *lista;
 
-      // aux2 percorre a lista ate o ultimo dado:
-      struct no *aux2 = *lista;
-      while (aux2->prox != *lista)
-      {
-         aux2 = aux2->prox;
-      }
-      aux2->prox = aux1;
-      aux1->ant = aux2;
+      struct no *ant = pega_no_anterior(*lista, *lista);
+      ant->prox = aux;
    }
 }
 
@@ -172,7 +165,6 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       // Se nao houver nenhum no:
       struct no *aux = malloc(sizeof(struct no));
       aux->dados = dados;
-      aux->ant = aux;
       aux->prox = aux;
       *lista = aux;
    }
@@ -180,13 +172,11 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
    {
       // Se ja houver algum no:
       struct no *aux1 = malloc(sizeof(struct no));
-
       struct no *aux2 = *lista;
 
       // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
-      struct no *antS = (*lista)->ant;
-      antS->prox = NULL;
-      (*lista)->ant = NULL;
+      struct no *ant = pega_no_anterior(*lista, aux2);
+      ant->prox = NULL;
 
       while ((strcmp(dados.matricula, aux2->dados.matricula) > 0) && aux2->prox != NULL)
       {
@@ -194,32 +184,25 @@ void inserir_ordenando(struct no **lista, struct s_dados dados)
       }
 
       if (aux2 == *lista && (strcmp(dados.matricula, aux2->dados.matricula) < 0))
-      { // esta no comeco
+      { // esta no comeco (C)
          aux1->dados = dados;
-         aux1->ant = antS;
          aux1->prox = *lista;
-         antS->prox = aux1;
          *lista = aux1;
-         aux2->ant = aux1;
+         ant->prox = *lista;
       }
       else if (aux2->prox == NULL && (strcmp(dados.matricula, aux2->dados.matricula) > 0))
       { // esta no fim
          aux1->dados = dados;
-         aux1->ant = aux2;
          aux1->prox = *lista;
          aux2->prox = aux1;
-         (*lista)->ant = aux1;
       }
       else
-      { // esta no meio
-         aux2 = aux2->ant;
+      { // esta no meio (C)
+         aux2 = pega_no_anterior(*lista, aux2);
          aux1->dados = dados;
-         aux1->ant = aux2;
          aux1->prox = aux2->prox;
          aux2->prox = aux1;
-         (aux1->prox)->ant = aux1;
-         (*lista)->ant = antS;
-         antS->prox = *lista;
+         ant->prox = *lista;
       }
    }
 }
@@ -234,9 +217,8 @@ int remover(struct no **lista, char matricula[])
    }
 
    // Transformando em uma lista encadeada NAO circular, mas, ao final, transformando em circular novamente
-   struct no *aux1 = (*lista)->ant;
+   struct no *aux1 = pega_no_anterior(*lista, *lista);
    aux1->prox = NULL;
-   (*lista)->ant = NULL;
 
    if (aux == *lista)
    { // esta no comeco
@@ -245,24 +227,23 @@ int remover(struct no **lista, char matricula[])
       if (*lista != NULL)
       {
          aux1->prox = *lista;
-         (*lista)->ant = aux1;
       }
    }
    else if (aux->prox == NULL)
    { // esta no fim
-      (aux->ant)->prox = *lista;
-      (*lista)->ant = aux->ant;
+      struct no *ant = pega_no_anterior(*lista, aux);
+      ant->prox = *lista;
       free(aux);
    }
    else
    { // esta no meio
-      (aux->ant)->prox = aux->prox;
-      (aux->prox)->ant = aux->ant;
+      struct no *ant = pega_no_anterior(*lista, aux);
+      ant->prox = aux->prox;
       free(aux);
       aux1->prox = *lista;
-      (*lista)->ant = aux1;
    }
-   return 0;
+
+   return 0; // dado removido da lista
 }
 
 // Esvaziar lista(C):
@@ -274,8 +255,8 @@ int esvaziar(struct no **lista)
    }
 
    // Transformando em uma lista encadeada NAO circular
-   ((*lista)->ant)->prox = NULL;
-   (*lista)->ant = NULL;
+   struct no *ant = pega_no_anterior(*lista, *lista);
+   ant->prox = NULL;
 
    while (*lista != NULL)
    {
@@ -328,4 +309,19 @@ void listar(struct no *lista)
          ++count;
       }
    }
+}
+
+// Funcoes auxiliares(C):
+struct no *pega_no_anterior(struct no *lista, struct no *no)
+{
+   struct no *aux = lista;
+   while (aux != NULL && aux->prox != no)
+   {
+      aux = aux->prox;
+      if (aux == lista)
+      {
+         return NULL;
+      }
+   }
+   return aux;
 }

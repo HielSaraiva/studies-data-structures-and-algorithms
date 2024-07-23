@@ -1,11 +1,11 @@
-## Singly Linked List
+## Lista Encadeada Simples
 
-It is a sequence of nodes with objects (data) of the same type. A list is defined by a pointer that points to the first no of a sequence. If a list (pointer) is empty, then that pointer points to **NULL**. The list's prox field points to the next element in the sequence or to **NULL**, when the node is the last in the sequence.
+É uma sequência de nós com objetos (dados) do mesmo tipo. Uma lista é definida por um ponteiro que aponta para o primeiro número de uma sequência. Se uma lista (ponteiro) estiver vazia, então esse ponteiro aponta para **NULL**. O campo prox da lista aponta para o próximo elemento na sequência ou para **NULL**, quando o nó é o último na sequência.
 
-## Doubly Linked List
+## Lista Duplamente Encadeada
 
-It is a sequence of nodes with objects (data) of the same type. A list is defined by a pointer that points to the first no of a sequence. If a list (pointer) is empty, then that pointer points to **NULL**. The list's prox field points to the next element in the sequence or to **NULL**, when the node is the last in the sequence. The ant field points to the previous element in the sequence or to **NULL**, when it is the first in the sequence.
+É uma sequência de nós com objetos (dados) do mesmo tipo. Uma lista é definida por um ponteiro que aponta para o primeiro número de uma sequência. Se uma lista (ponteiro) estiver vazia, então esse ponteiro aponta para **NULL**. O campo prox da lista aponta para o próximo elemento na sequência ou para **NULL**, quando o nó é o último na sequência. O campo ant aponta para o elemento anterior na sequência ou para **NULL**, quando é o primeiro na sequência.
 
-## Circular Singly/Doubly Linked List
+## Lista Circular Simples/Duplamente Encadeada
 
-The lists mentioned above can also be implemented in a circular way. Thus, when ***simply chained***, their last element will have the next pointer pointing to the first, while ***doubly linked*** lists will have the last with the next pointer pointing to the first element, and the first with the previous pointer pointing to the last.
+As listas mencionadas acima também podem ser implementadas de forma circular. Assim, quando ***simplesmente encadeadas***, seu último elemento terá o próximo ponteiro apontando para o primeiro, enquanto listas ***duplamente encadeadas*** terão a última com o próximo ponteiro apontando para o primeiro elemento, e a primeira com o ponteiro anterior apontando para o último.

@@ -1,4 +1,4 @@
-# Implement these operations in a List
+# Implementar essas operações em uma Lista
 
 * INSERIR
 * ALTERAR
@@ -7,9 +7,9 @@
 * ORDENAR
 * LISTAR-TODOS
 
-## Question data
+## Dados da questão
 
-### Version 1 
+### Versão 1
 
    ``````
    #define capacidade 10;
@@ -30,7 +30,7 @@
 
 ##
 
-### Version 2
+### Versão 2
 
    ``````
    #define capacidade 10;
@@ -52,7 +52,7 @@
 
 ##
 
-### Version 3
+### Versão 3
 
    ``````
    #define capacidade 10;
