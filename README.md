@@ -8,10 +8,10 @@
 
 - Listas:
 
-- Lista Simples Encadeada (ordenada e não ordenada)
+   - Lista Simples Encadeada (ordenada e não ordenada)
 
-- Lista Duplamente Encadeada (ordenada e não ordenada)
+   - Lista Duplamente Encadeada (ordenada e não ordenada)
 
-- Lista Circular Simplemente Encadeada (ordenada e não ordenada)
+   - Lista Circular Simplemente Encadeada (ordenada e não ordenada)
 
-- Lista Circular Duplamente Encadeada (ordenada e não ordenada)
+   - Lista Circular Duplamente Encadeada (ordenada e não ordenada)
