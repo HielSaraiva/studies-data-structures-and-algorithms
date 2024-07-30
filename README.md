@@ -15,3 +15,6 @@
    - Lista Circular Simplemente Encadeada (ordenada e não ordenada)
 
    - Lista Circular Duplamente Encadeada (ordenada e não ordenada)
+
+- Filas 
+
