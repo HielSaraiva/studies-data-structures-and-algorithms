@@ -12,7 +12,7 @@
 ### Versão 1
 
    ``````
-   #define capacidade 10;
+   #define capacidade 10
 
    struct lista
    {
@@ -33,7 +33,7 @@
 ### Versão 2
 
    ``````
-   #define capacidade 10;
+   #define capacidade 10
 
    struct lista
    {
@@ -55,7 +55,7 @@
 ### Versão 3
 
    ``````
-   #define capacidade 10;
+   #define capacidade 10
 
    struct aluno
    {

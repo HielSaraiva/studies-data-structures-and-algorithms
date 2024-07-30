@@ -152,8 +152,8 @@ int buscar(struct lista *p, int num)
 int inserir(struct lista *p, int num, int mode)
 {
     // O valor sera inserido ao final do vetor, caso houver espaco retorna 0, caso contrario retorna -1
-    // Se o mode = 0, o num será inserido no final. Qualquer valor diferente para mode fará num ser inserido no começo
-    // Se for um conjunto e ja houver o valor, retornará -2
+    // Se o mode = 0, o num serï¿½ inserido no final. Qualquer valor diferente para mode farï¿½ num ser inserido no comeï¿½o
+    // Se for um conjunto e ja houver o valor, retornarï¿½ -2
 	if (p->tamanho != p->cap)
 	{
 		if (p->type == 0) {
@@ -195,7 +195,7 @@ int alterar(struct lista *p, int newNum, int oldNum)
 int excluir(struct lista *p, int num)
 {
     // Caso o numero que se deseja excluir estiver no vetor, serao retornado 0, caso contrario, -1 sera retornado
-    // Caso hajam 2 numeros iguais, o primeiro numero a aparecer no vetor serao o exclui­do
+    // Caso hajam 2 numeros iguais, o primeiro numero a aparecer no vetor serao o excluiï¿½do
     if (buscar(p, num) != -1)
     {
         for (int i = buscar(p, num); i < p->tamanho; ++i)
