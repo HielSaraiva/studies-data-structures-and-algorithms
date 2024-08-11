@@ -8,19 +8,20 @@
 ## Dados da questão
 
 ### Versão 1
+``````java
+#define capacidade 10
 
-    #define capacidade 10
+struct pilha
+{
+    int cap;
+    int topo;
+    int *dados;
+};
 
-    struct pilha
-    {
- 	    int cap;
-        int topo;
-        int *dados;
-    };
-
-    void iniciar(struct fila *p)
-    {
-        p->topo = -1;
-        p->cap = capacidade;
-	    p->dados = malloc(cap * sizeof(int))
-    }
+void iniciar(struct fila *p)
+{
+    p->topo = -1;
+    p->cap = capacidade;
+    p->dados = malloc(cap * sizeof(int))
+}
+``````

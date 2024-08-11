@@ -11,7 +11,7 @@
 
 ### Versão 1
 
-   ``````
+   ``````java
    #define capacidade 10
 
    struct lista
@@ -32,7 +32,7 @@
 
 ### Versão 2
 
-   ``````
+   ``````java
    #define capacidade 10
 
    struct lista
@@ -54,7 +54,7 @@
 
 ### Versão 3
 
-   ``````
+   ``````java
    #define capacidade 10
 
    struct aluno
