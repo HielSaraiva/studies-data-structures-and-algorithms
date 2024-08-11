@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define capacidade 10
 
@@ -54,7 +55,7 @@ int main()
         case 2:
             if (remover(pilhaP) == 0)
             {
-                printf("Valor da primeira posicao da pilha excluido!\n");
+                printf("Valor do topo da pilha excluido!\n");
             }
             else
             {
@@ -68,7 +69,7 @@ int main()
             }
             else
             {
-                printf("O valor do primeiro elemento da pilha e: %d", espiar(pilhaP));
+                printf("O valor do topo da pilha e: %d\n", espiar(pilhaP));
             }
             break;
         case 4:
@@ -94,63 +95,58 @@ void iniciar(struct pilha *p)
 {
     p->cap = capacidade;
     p->topo = -1;
-    p->dados = malloc(cap * sizeof(int))
+    p->dados = malloc((p->cap) * sizeof(int));
 }
 
-int inserir(struct fila *p, int num)
+int inserir(struct pilha *p, int num)
 {
     // Se nao houver espaco na pilha, sera retornado -1.
     // Caso o valor seja inserido no topo, sera retornado 0.
 
-    if (p->fim != p->cap - 1)
+    if (p->topo != p->cap - 1)
     {
-        ++(p->fim);
-        p->vetor[p->fim] = num;
+        ++(p->topo);
+        *(p->dados + p->topo) = num;
         return 0;
     }
     return -1;
 }
 
-int remover(struct fila *p)
+int remover(struct pilha *p)
 {
     // Caso nao haja nenhum valor na pilha, sera retornado -1.
     // Caso o numero seja removido sera retornado 0.
 
-    if (p->fim != -1)
+    if (p->topo != -1)
     {
-        for (int i = 0; i < p->fim; i++)
-        {
-            p->vetor[i] = p->vetor[i + 1];
-        }
-        p->vetor[p->fim] = 0;
-        --(p->fim);
+        *(p->dados + p->topo) = 0;
+        --(p->topo);
         return 0;
     }
-
     return -1;
 }
 
-int espiar(struct fila *p)
+int espiar(struct pilha *p)
 {
     // Caso nao haja nenhum valor na pilha para ser espiado, sera retornado -1.
     // Caso tenha valor para espiar, sera retornado o valor.
 
-    if (p->fim != -1)
+    if (p->topo != -1)
     {
-        return p->vetor[0];
+        return *(p->dados + p->topo);
     }
     return -1;
 }
 
-int listarTodos(struct fila *p)
+int listarTodos(struct pilha *p)
 {
     // A funcao retornara -1 caso nao houver valores dentro da pilha e 0 caso houver algum valor.
-    if (p->fim != -1)
+    if (p->topo != -1)
     {
         printf("[ ");
-        for (int i = 0; i <= p->fim; ++i)
+        for (int i = 0; i <= p->topo; ++i)
         {
-            printf("%d ", p->vetor[i]);
+            printf("%d ", *(p->dados + i));
         }
         printf("]\n");
         return 0;
