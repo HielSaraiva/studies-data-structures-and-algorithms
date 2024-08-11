@@ -8,7 +8,7 @@
 
 - Listas:
 
-   - Lista Simples Encadeada (ordenada e não ordenada)
+   - Lista Simplesmente Encadeada (ordenada e não ordenada)
 
    - Lista Duplamente Encadeada (ordenada e não ordenada)
 
@@ -16,5 +16,16 @@
 
    - Lista Circular Duplamente Encadeada (ordenada e não ordenada)
 
-- Filas 
+- Filas:
+
+   - Fila Simplesmente Encadeada
+   
+   - Fila Duplamente Encadeada
+
+- Pilhas:
+
+   - Pilha Simplesmente Encadeada
+
+   - Pilha Duplamente Encadeada
+
 
