@@ -15,6 +15,9 @@ int inserir(struct pilha *, int);
 int remover(struct pilha *);
 int espiar(struct pilha *);
 int listarTodos(struct pilha *);
+int estaVazia(struct pilha *);
+int tamanho(struct pilha *);
+int limpar(struct pilha *);
 
 int main()
 {
@@ -32,6 +35,9 @@ int main()
         printf("2 - Excluir um valor da pilha\n");
         printf("3 - Listar informacoes do topo da pilha\n");
         printf("4 - Listar todos os valores da pilha\n");
+        printf("5 - Estado da pilha\n");
+        printf("6 - Tamanho da pilha\n");
+        printf("7 - Limpar pilha\n");
         printf("0 - Sair do programa\n=> ");
         scanf("%d", &input);
 
@@ -80,6 +86,29 @@ int main()
             else
             {
                 printf("Nao ha valores para serem listados!\n");
+            }
+            break;
+        case 5:
+            if (estaVazia(pilhaP) == 0)
+            {
+                printf("A pilha esta vazia!!\n");
+            }
+            else
+            {
+                printf("A pilha nao esta vazia!\n");
+            }
+            break;
+        case 6:
+            printf("A pilha tem tamanho: %d!!\n", tamanho(pilhaP));
+            break;
+        case 7:
+            if (limpar(pilhaP) == 0)
+            {
+                printf("A pilha foi limpa!!\n");
+            }
+            else
+            {
+                printf("A pilha esta vazia, nao e necessario limpa-la!\n");
             }
             break;
         default:
@@ -149,6 +178,35 @@ int listarTodos(struct pilha *p)
             printf("%d ", *(p->dados + i));
         }
         printf("]\n");
+        return 0;
+    }
+    return -1;
+}
+
+int estaVazia(struct pilha *p)
+{
+    // A funcao retornara -1 se nao estiver vazia e 0 caso esteja vazia
+    if (p->topo == -1)
+    {
+        return 0;
+    }
+    return -1;
+}
+
+int tamanho(struct pilha *p)
+{
+    return (p->topo) + 1;
+}
+
+int limpar(struct pilha *p)
+{
+    // A funcao retornara -1 se a pilha ja estiver vazia, e 0 quando for totalmente limpa
+    if (p->topo != -1)
+    {
+        while (p->topo != -1)
+        {
+            remover(p);
+        }
         return 0;
     }
     return -1;
