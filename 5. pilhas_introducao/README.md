@@ -4,6 +4,9 @@
 - remover()
 - espiar()
 - listarTodos()
+- estaVazia()
+- tamanho()
+- limpar()
 
 ## Dados da questão
 
