@@ -22,6 +22,9 @@ void inserir(struct no **, struct s_dados);
 int remover(struct no **);
 int espiar(struct no *);
 int listarTodos(struct no *);
+int estaVazia(struct no *);
+int tamanho(struct no *);
+int limpar(struct no **);
 
 int main()
 {
@@ -86,16 +89,30 @@ int main()
 
    // Testando funcoes:
    // printf("%d", listarTodos(fila));
+   printf("%d\n", estaVazia(fila));
+   printf("%d\n", tamanho(fila));
+
    inserir(&fila, dados1);
    inserir(&fila, dados2);
    inserir(&fila, dados3);
    inserir(&fila, dados4);
    listarTodos(fila);
 
+   printf("%d\n", estaVazia(fila));
+   printf("%d\n", tamanho(fila));
+
    remover(&fila);
    listarTodos(fila);
 
+   printf("%d\n", estaVazia(fila));
+   printf("%d\n", tamanho(fila));
+
    espiar(fila);
+
+   limpar(&fila);
+
+   printf("%d\n", estaVazia(fila));
+   printf("%d\n", tamanho(fila));
 
    return 0;
 }
@@ -171,6 +188,41 @@ int listarTodos(struct no *fila)
          printf("%s\n", aux->dados.fone);
          printf("%.2f %.2f\n", aux->dados.notas[0], aux->dados.notas[1]);
          aux = aux->prox;
+      }
+      return 0;
+   }
+   return -1;
+}
+
+int estaVazia(struct no *fila)
+{
+   // A funcao retornara -1 se nao estiver vazia e 0 caso esteja vazia
+   if (fila == NULL)
+   {
+      return 0;
+   }
+   return -1;
+}
+
+int tamanho(struct no *fila)
+{
+   int cont = 0;
+   while (fila != NULL)
+   {
+      ++cont;
+      fila = fila->prox;
+   }
+   return cont;
+}
+
+int limpar(struct no **fila)
+{
+   // A funcao retornara -1 se a pilha ja estiver vazia, e 0 quando for totalmente limpa
+   if ((*fila) != NULL)
+   {
+      while ((*fila) != NULL)
+      {
+         remover(fila);
       }
       return 0;
    }
