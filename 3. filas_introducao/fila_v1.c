@@ -14,6 +14,9 @@ int inserir(struct fila *, int);
 int remover(struct fila *);
 int espiar(struct fila *);
 int listarTodos(struct fila *);
+int estaVazia(struct fila *);
+int tamanho(struct fila *);
+int limpar(struct fila *);
 
 int main()
 {
@@ -31,6 +34,9 @@ int main()
         printf("2 - Excluir um valor da fila\n");
         printf("3 - Listar informacoes do primeiro elemeto da fila\n");
         printf("4 - Listar todos os valores da fila\n");
+        printf("5 - Estado da fila\n");
+        printf("6 - Tamanho da fila\n");
+        printf("7 - Limpar fila\n");
         printf("0 - Sair do programa\n=> ");
         scanf("%d", &input);
 
@@ -81,6 +87,29 @@ int main()
                 printf("Nao ha valores para serem listados!\n");
             }
             break;
+        case 5:
+            if (estaVazia(filaP) == 0)
+            {
+                printf("A fila esta vazia!!\n");
+            }
+            else
+            {
+                printf("A fila nao esta vazia!\n");
+            }
+            break;
+        case 6:
+                printf("A fila tem tamanho: %d!!\n", tamanho(filaP));
+            break;
+        case 7:
+            if (limpar(filaP) == 0)
+            {
+                printf("A fila foi limpa!!\n");
+            }
+            else
+            {
+                printf("A fila esta vazia, nao e necessario limpa-la!\n");
+            }
+            break;
         default:
             printf("Digite um valor valido e tente novamente!\n");
             break;
@@ -117,7 +146,7 @@ int remover(struct fila *p)
 
     if (p->fim != -1)
     {
-        for (int i = 0; i < p->fim; i++) 
+        for (int i = 0; i < p->fim; i++)
         {
             p->vetor[i] = p->vetor[i + 1];
         }
@@ -152,6 +181,35 @@ int listarTodos(struct fila *p)
             printf("%d ", p->vetor[i]);
         }
         printf("]\n");
+        return 0;
+    }
+    return -1;
+}
+
+int estaVazia(struct fila *p)
+{
+    // A funcao retornara -1 se nao estiver vazia e 0 caso esteja vazia
+    if(p->fim == -1)
+    {
+        return 0;
+    }
+    return -1;
+}
+
+int tamanho(struct fila *p)
+{
+    return (p->fim) + 1;
+}
+
+int limpar(struct fila *p)
+{
+    // A funcao retornara -1 se a fila ja estiver vazia, e 0 quando for totalmente limpa
+    if(p->fim != -1)
+    {
+        while (p->fim != -1)
+        {
+          remover(p);
+        }
         return 0;
     }
     return -1;
