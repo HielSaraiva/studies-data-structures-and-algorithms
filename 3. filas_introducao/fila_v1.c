@@ -98,7 +98,7 @@ int main()
             }
             break;
         case 6:
-                printf("A fila tem tamanho: %d!!\n", tamanho(filaP));
+            printf("A fila tem tamanho: %d!!\n", tamanho(filaP));
             break;
         case 7:
             if (limpar(filaP) == 0)
@@ -189,7 +189,7 @@ int listarTodos(struct fila *p)
 int estaVazia(struct fila *p)
 {
     // A funcao retornara -1 se nao estiver vazia e 0 caso esteja vazia
-    if(p->fim == -1)
+    if (p->fim == -1)
     {
         return 0;
     }
@@ -204,11 +204,11 @@ int tamanho(struct fila *p)
 int limpar(struct fila *p)
 {
     // A funcao retornara -1 se a fila ja estiver vazia, e 0 quando for totalmente limpa
-    if(p->fim != -1)
+    if (p->fim != -1)
     {
         while (p->fim != -1)
         {
-          remover(p);
+            remover(p);
         }
         return 0;
     }
