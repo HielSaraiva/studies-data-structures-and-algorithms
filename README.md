@@ -20,8 +20,6 @@
 
    - Fila Simplesmente Encadeada 
    
-   - Fila Simplesmente Encadeada (2 Ponteiros - INICIO e FIM)
-   
    - Fila Duplamente Encadeada
 
 - Pilhas:
