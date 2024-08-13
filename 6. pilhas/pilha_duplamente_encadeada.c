@@ -131,8 +131,11 @@ int remover(struct no **pilha)
    if (*pilha != NULL)
    {
       struct no *aux = *pilha;
-      (aux->prox)->ant = NULL;
       *pilha = (*pilha)->prox;
+      if (*pilha != NULL)
+      {
+         (*pilha)->ant = NULL;
+      }
       free(aux);
       return 0;
    }
