@@ -114,6 +114,10 @@ int main()
    printf("%d\n", estaVazia(fila));
    printf("%d\n", tamanho(fila));
 
+   inserir(&fila, dados1);
+   inserir(&fila, dados2);
+
+   espiar(fila);
    return 0;
 }
 
