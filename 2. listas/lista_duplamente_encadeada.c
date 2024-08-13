@@ -219,7 +219,11 @@ int remover(struct no **lista, char matricula[])
    if (aux == *lista)
    { // esta no comeco
       *lista = (*lista)->prox;
-      (*lista)->ant = NULL;
+
+      if (*lista != NULL)
+      {
+         (*lista)->ant = NULL;
+      }
       free(aux);
    }
    else if (aux->prox == NULL)

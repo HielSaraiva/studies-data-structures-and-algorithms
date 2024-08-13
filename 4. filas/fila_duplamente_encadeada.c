@@ -166,8 +166,13 @@ int remover(struct no **fila)
    {
       struct no *aux = *fila;
       *fila = (*fila)->prox;
-      aux->ant = NULL;
+
+      if (*fila != NULL)
+      {
+         (*fila)->ant = NULL;
+      }
       free(aux);
+      
       return 0;
    }
    return -1;
