@@ -18,7 +18,9 @@
 
 - Filas:
 
-   - Fila Simplesmente Encadeada 
+   - Fila Simplesmente Encadeada V1
+
+   - Fila Simplesmente Encadeada V2
    
    - Fila Duplamente Encadeada
 
