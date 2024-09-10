@@ -30,4 +30,4 @@
 
    - Pilha Duplamente Encadeada
 
-
+- Árvore Binária

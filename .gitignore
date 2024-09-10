@@ -28,3 +28,5 @@ out/
 2. listas/lista_duplamente_encadeada.exe
 4. filas/fila_duplamente_encadeada.exe
 6. pilhas/pilha_duplamente_encadeada.exe
+/7. arvores/arvore_binaria
+/cmake-build-debug/
