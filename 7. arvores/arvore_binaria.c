@@ -40,7 +40,7 @@ noa *a_inserir_rr(noa *raiz, int valor)
 // funcao sem retorno,usando ponteiro para ponteiro
 void a_inserir_pp(noa **raiz, int valor)
 {
-   if (*raiz == NULL)
+   if (*raiz == NULL) // base da recursao
    {
       noa *aux = malloc(sizeof(noa));
       aux->valor = valor;
@@ -64,21 +64,19 @@ void a_inserir_pp(noa **raiz, int valor)
 noa *a_buscar(noa *raiz, int valor)
 {
    // se não tá na árvore
-   if (raiz == NULL)
+   if (raiz == NULL) // base da recursao
       return NULL;
 
    // se tem que andar na árvore
    if (valor > raiz->valor)
    {
-      raiz->dir = a_buscar(raiz->dir, valor);
-      return raiz;
+      return a_buscar(raiz->dir, valor);
    }
    else if (valor < raiz->valor)
    {
-      raiz->esq = a_buscar(raiz->esq, valor);
-      return raiz;
+      return a_buscar(raiz->esq, valor);
    }
-   return raiz;
+   return raiz; // retorna quando for igual
 }
 
 // a remoção deve considerar 3 casos
@@ -186,9 +184,13 @@ int main()
    raiz = a_inserir_rr(raiz, 85);
    raiz = a_inserir_rr(raiz, 99);
 
-   busca_profundidade(raiz);
+   printf("%d", a_buscar(raiz, 10)->valor);
 
-   /* raiz = a_remover(raiz, 50); printf("pre-ordem: "); a_pre_ordem(raiz); printf("\n"); printf("em-ordem: "); a_em_ordem(raiz); printf("\n"); printf("pos-ordem: "); a_pos_ordem(raiz); printf("\n"); /* inserir_pp(&raiz,50); inserir_pp(&raiz,85); inserir_pp(&raiz,105); inserir_pp(&raiz,70); inserir_pp(&raiz,200); a_inserir_pp(&raiz,200); */ return 0;
+
+   // busca_profundidade(raiz);
+
+   /* raiz = a_remover(raiz, 50); printf("pre-ordem: "); a_pre_ordem(raiz); printf("\n"); printf("em-ordem: "); a_em_ordem(raiz); printf("\n"); printf("pos-ordem: "); a_pos_ordem(raiz); printf("\n"); /* inserir_pp(&raiz,50); inserir_pp(&raiz,85); inserir_pp(&raiz,105); inserir_pp(&raiz,70); inserir_pp(&raiz,200); a_inserir_pp(&raiz,200); */
+   return 0;
 }
 
 // codigo para uma lista a ser usada em busca na arvore
