@@ -2,7 +2,7 @@
 
 ## Objetivo Geral
 
-- Repositório que contém as implementações das operações necessárias para as seguintes estruturas de dados.
+- Repositório que contém as implementações das seguintes estruturas de dados:
 
 ## Visão Geral
 
