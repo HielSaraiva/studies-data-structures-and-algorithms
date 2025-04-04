@@ -36,7 +36,7 @@
 
 - Árvores:
 
-   - Binária de Busca
+   - Árvore Binária de Busca
 
 - Tabela de Hashing
 
