@@ -1,10 +1,14 @@
-# Estudos de Estruturas de Dados (PT-BR)
+# Estudos de Estruturas de Dados e Algoritmos de Pesquisa e Ordenação (PT-BR)
 
 ## Objetivo Geral
 
-- Repositório que contém as implementações das seguintes estruturas de dados:
+- Repositório que contém as implementações das principais estruturas de dados e dos principais algoritmos de pesquisa e ordenação.
+
+---
 
 ## Visão Geral
+
+### Estruturas de Dados
 
 - Listas:
 
@@ -30,4 +34,50 @@
 
    - Pilha Duplamente Encadeada
 
-- Árvore Binária
+- Árvores:
+
+   - Binária de Busca
+
+- Tabela de Hashing
+
+---
+
+### Métodos de Ordenação
+
+#### Por Inserção
+
+- Insertion-Sort
+
+- Shell-Sort
+
+#### Por Intercalação
+
+- Merge-Sort
+
+#### Por Seleção
+
+- Selection-Sort
+
+- Heap-Sort
+
+#### Por Troca
+
+- Bubble-Sort
+
+- Quick-Sort
+
+#### Sem Comparação
+
+- Counting-Sort
+
+- Bucket-Sort
+
+- Radix-Sort
+
+---
+
+### Métodos de Pesquisa
+
+- Busca Linear
+
+- Busca Binária
