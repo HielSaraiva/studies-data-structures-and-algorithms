@@ -9,3 +9,10 @@ Uma árvore binária é um conjunto finito de elementos, onde cada elemento é d
 1. Os nós à esquerda de um nó contêm valores menores.
 2. Os nós à direita contêm valores maiores.
 3. Essa regra se aplica recursivamente a todos os nós.
+
+## Heap Binário
+
+É um objeto arranjo que pode ser visto como uma árvore binária quase completa. Cada nó da árvore corresponde a um elemento arranjo. A árvore está completamente preenchida em todos os níveis, exceto possivelmente no nível mais baixo, que é preenchido a partir da esquerda até um ponto. 
+
+- Min Heap: menor valor no topo
+- Max Heap: valor mais alto no topo

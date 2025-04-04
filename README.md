@@ -38,6 +38,8 @@
 
    - Árvore Binária de Busca
 
+   - Heap Binário
+
 - Tabela de Hashing
 
 ---
