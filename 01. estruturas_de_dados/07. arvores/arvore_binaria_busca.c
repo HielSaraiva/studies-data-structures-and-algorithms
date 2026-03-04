@@ -1,13 +1,13 @@
+// Árvore Binária de Busca:
 #include <stdio.h>
 #include <stdlib.h>
-// codigo para arvores em si
+
 struct noa
 {
    int valor;
    struct noa *esq;
    struct noa *dir;
 };
-
 typedef struct noa noa;
 
 // inserção
@@ -33,6 +33,7 @@ noa *a_inserir_rr(noa *raiz, int valor)
    else
    {
       // se quisesse inserir um valor já existente, mas não é o caso, pois a chave já existe
+      // valor já existente é rejeitado
    }
    return raiz;
 }
@@ -187,11 +188,15 @@ int main()
    printf("%d", a_buscar(raiz, 10)->valor);
 
 
+
    // busca_profundidade(raiz);
 
    /* raiz = a_remover(raiz, 50); printf("pre-ordem: "); a_pre_ordem(raiz); printf("\n"); printf("em-ordem: "); a_em_ordem(raiz); printf("\n"); printf("pos-ordem: "); a_pos_ordem(raiz); printf("\n"); /* inserir_pp(&raiz,50); inserir_pp(&raiz,85); inserir_pp(&raiz,105); inserir_pp(&raiz,70); inserir_pp(&raiz,200); a_inserir_pp(&raiz,200); */
    return 0;
 }
+
+// IMPLEMENTANDO BUSCA EM PROFUNDIDADE & BUSCA EM LARGURA
+// ---------------------------------------------------------------------------------------- //
 
 // codigo para uma lista a ser usada em busca na arvore
 struct nol
@@ -199,7 +204,6 @@ struct nol
    struct noa *enoa; // endereço do nó da arvore
    struct nol *prox;
 };
-
 typedef struct nol nol;
 
 void l_inserir_comeco(struct nol **l, noa *enoa)
@@ -340,8 +344,8 @@ void busca_largura(noa *raiz)
       noa *no_arvore = l_cabeca->enoa;
       printf("%d ", no_arvore->valor);
       // pego os filhos e coloco na borda no fim da lista
-      l_inserir_final(&borda, no_arvore->esq); // nao insiro se ponteiro enoa for NULL, ajustei codigo
-      l_inserir_final(&borda, no_arvore->dir); // nao insiro se ponteiro enoa for NULL, ajustei codigo
+      l_inserir_final(&borda, no_arvore->esq);
+      l_inserir_final(&borda, no_arvore->dir);
       free(l_cabeca);
    }
 }
@@ -360,8 +364,8 @@ void busca_profundidade(noa *raiz)
       noa *no_arvore = l_cabeca->enoa;
       printf("%d ", no_arvore->valor);
       // pego os filhos e coloco na borda no fim da lista
-      l_inserir_comeco(&borda, no_arvore->dir); // nao insiro se ponteiro enoa for NULL, ajustei codigo
-      l_inserir_comeco(&borda, no_arvore->esq); // nao insiro se ponteiro enoa for NULL, ajustei codigo
+      l_inserir_comeco(&borda, no_arvore->dir);
+      l_inserir_comeco(&borda, no_arvore->esq);
       free(l_cabeca);
    }
 }

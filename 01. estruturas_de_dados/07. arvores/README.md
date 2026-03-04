@@ -9,6 +9,7 @@ Uma árvore binária é um conjunto finito de elementos, onde cada elemento é d
 1. Os nós à esquerda de um nó contêm valores menores.
 2. Os nós à direita contêm valores maiores.
 3. Essa regra se aplica recursivamente a todos os nós.
+4. Não são permitidos valores duplicados.
 
 ## Heap Binário
 

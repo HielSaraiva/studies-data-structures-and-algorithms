@@ -4,6 +4,8 @@
 
 O Selection Sort seleciona repetidamente o menor elemento da parte não ordenada do array e o move para a posição correta. Ele percorre o array várias vezes, trocando o menor valor encontrado com o primeiro elemento da parte não ordenada.
 
+![selection_sort](selection_sort.gif)
+
 ---
 
 ### Complexidade Temporal

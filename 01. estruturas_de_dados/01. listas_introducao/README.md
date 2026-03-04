@@ -1,11 +1,11 @@
-# Implementar essas operações em uma Lista
+## Implementar essas operações em uma Lista
 
 * INSERIR
 * ALTERAR
 * EXCLUIR
 * BUSCAR
 * ORDENAR
-* LISTAR-TODOS
+* LISTAR-TODOSß
 
 ## Dados da questão
 
@@ -28,7 +28,7 @@
    }
    ``````
 
-##
+---
 
 ### Versão 2
 
@@ -50,7 +50,7 @@
    }
    ``````
 
-##
+---
 
 ### Versão 3
 
@@ -79,3 +79,8 @@
       all_null(p);
    }
    ``````
+
+> *Observação:* Todas essas implementações se assemelham a *Arrays*.
+> - Versão 1: Array Estático (Armazenados na Stack)
+> - Versão 2: Array com Alocação Dinâmica (Armazenados no Heap)
+> - Versão 3: Array de Ponteiros (Armazenados na Stack e no Heap)

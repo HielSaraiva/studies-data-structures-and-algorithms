@@ -28,3 +28,6 @@ void iniciar(struct fila *p)
     p->dados = malloc(cap * sizeof(int))
 }
 ``````
+
+> *Observação:* Essa implementação se assemelha a um *Array*.
+> - Versão 1: Array com Alocação Dinâmica (Armazenados no Heap)

@@ -4,6 +4,8 @@
 
 O Insertion Sort percorre o array e insere cada elemento na posição correta em relação aos anteriores, como se estivéssemos organizando cartas na mão. O algoritmo mantém uma parte do array sempre ordenada enquanto insere os novos elementos.
 
+![insertion_sort](insertion_sort.gif)
+
 ---
 
 ### Complexidade Temporal
