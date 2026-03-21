@@ -4,6 +4,8 @@
 
 O Quick Sort escolhe um **pivô**, particiona o array em dois grupos (menores e maiores que o pivô) e recursivamente ordena cada parte. É um dos algoritmos mais eficientes para ordenação.
 
+![quick_sort_partition_animation.gif](quick_sort_partition_animation.gif)
+
 ---
 
 ### Complexidade Temporal

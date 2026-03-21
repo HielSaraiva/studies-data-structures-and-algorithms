@@ -4,6 +4,8 @@
 
 O Bucket Sort distribui os elementos em **baldes** (subarrays) e ordena cada um individualmente (geralmente com Insertion Sort). Depois, os baldes são concatenados para formar o array final ordenado.
 
+![bucket_sort](bucket_sort.gif)
+
 ---
 
 ### Complexidade Temporal

@@ -4,6 +4,8 @@
 
 O Merge Sort divide o array ao meio repetidamente até que cada subarray tenha apenas um elemento. Depois, combina os subarrays ordenados de forma eficiente.
 
+![merge_sort.gif](merge_sort.gif)
+
 ---
 
 ### Complexidade Temporal

@@ -4,6 +4,8 @@
 
 O Shell Sort é uma extensão do Insertion Sort que melhora seu desempenho dividindo o array em segmentos menores e ordenando-os com espaçamentos maiores. Os elementos são comparados e trocados a uma certa distância, diminuindo progressivamente esse intervalo até 1 (quando se torna um Insertion Sort).
 
+![shell_sort](shell_sort.gif)
+
 ---
 
 ### Complexidade Temporal

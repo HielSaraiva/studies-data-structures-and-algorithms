@@ -4,6 +4,8 @@
 
 O Counting Sort conta a frequência dos elementos e usa essas contagens para posicioná-los corretamente no array ordenado. Funciona apenas para números inteiros e com valores dentro de um intervalo limitado.
 
+![counting_sort](counting_sort.gif)
+
 ---
 
 ### Complexidade Temporal

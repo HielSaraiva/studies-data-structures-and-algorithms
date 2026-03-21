@@ -75,13 +75,3 @@
 
 - Busca Linear
 - Busca Binária
-
-### Algoritmos Clássicos
-
----
-
-### Leetcode
-
----
-
-### Cracking the Code Interview
